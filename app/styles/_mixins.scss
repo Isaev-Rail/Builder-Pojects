@@ -1,0 +1,42 @@
+@mixin clearfix {
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder { color: $color; opacity: 1; }
+  &::-moz-placeholder          { color: $color; opacity: 1; }
+  &:-moz-placeholder           { color: $color; opacity: 1; }
+  &:-ms-input-placeholder      { color: $color; opacity: 1; }
+}
+
+@mixin media($value-1, $value-2) {
+  @media screen and (min-width: $value-1) and (max-width: $value-2) {
+    @content
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: $screen-xs-max) {
+    @content
+  }
+}
+@mixin tablet {
+  @media screen and (min-width: $screen-sm-min) {
+    @content
+  }
+}
+@mixin laptop {
+  @media screen and (min-width: $screen-md-min) {
+    @content
+}
+}
+@mixin desctop {
+  @media screen and (min-width: $screen-lg-min) {
+    @content
+  }
+}
